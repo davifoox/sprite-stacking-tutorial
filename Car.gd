@@ -16,7 +16,7 @@ extends KinematicBody2D
 
 onready var stacked_sprite = $StackedSprite
 
-var wheel_base = 70
+var wheel_base = 30
 var steering_angle = 15
 var engine_power = 800
 var friction = -0.9
