@@ -59,8 +59,8 @@ func get_input():
 		acceleration = transform.x * braking
 	
 	#TODO Set stacked sprites rotation
-	if turn != 0:
-		stacked_sprite.set_rotation(velocity.angle())
+#	if turn != 0:
+#		stacked_sprite.set_rotation(velocity.angle())
 		
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2
