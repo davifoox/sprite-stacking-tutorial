@@ -6,7 +6,11 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
