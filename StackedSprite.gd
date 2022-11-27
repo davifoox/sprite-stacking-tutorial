@@ -4,6 +4,8 @@ extends Sprite
 export(bool) var show_sprites = false setget set_show_sprites
 export(bool) var rotate_sprites = false setget set_rotate_sprites
 
+var y_offset = 1
+
 func set_show_sprites(_show_sprites):
 	show_sprites = _show_sprites
 	if show_sprites:
@@ -37,5 +39,5 @@ func render_sprites():
 		next_sprite.texture = texture
 		next_sprite.hframes = hframes
 		next_sprite.frame = i
-		next_sprite.position.y = -i
+		next_sprite.position.y = -i * y_offset
 		add_child(next_sprite)
