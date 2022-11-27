@@ -12,7 +12,9 @@ extends KinematicBody2D
 #	velocity = lerp(velocity, input * SPEED, ACCELERATION * delta)
 #	move_and_slide(velocity)
 #	if input != Vector2.ZERO:
-#		$StackedSprite.set_rotation(velocity.angle() - deg2rad(90))
+#		var rotation_value = velocity.angle() - deg2rad(90)
+#		$StackedSprite.set_rotation(rotation_value)
+#		print("rotation: " + str(rotation_value))
 
 onready var stacked_sprite = $StackedSprite
 
@@ -57,11 +59,14 @@ func get_input():
 		acceleration = transform.x * engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
-	
+
 	#TODO Set stacked sprites rotation
-#	if turn != 0:
-#		stacked_sprite.set_rotation(velocity.angle())
-		
+	if velocity != Vector2.ZERO:
+#		var rotation_value = velocity.angle() - deg2rad(90)
+		var rotation_value = steering_direction - deg2rad(90)
+		stacked_sprite.set_rotation(rotation_value)
+		print("rotation: " + str(rotation_value))
+
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2
 	var front_wheel = position + transform.x * wheel_base/2
