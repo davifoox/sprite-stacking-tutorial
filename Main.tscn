@@ -18,4 +18,3 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
-zoom = Vector2( 2, 2 )
