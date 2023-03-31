@@ -17,6 +17,7 @@ extends KinematicBody2D
 #		print("rotation: " + str(rotation_value))
 
 onready var stacked_sprite = $StackedSprite
+onready var collision_shape = $CollisionShape2D
 
 var wheel_base = 30
 #var steering_angle = 15
@@ -66,6 +67,7 @@ func set_sprites_rotation():
 	if velocity != Vector2.ZERO:
 		var rotation_value = velocity.angle() - deg2rad(90)
 		stacked_sprite.set_rotation(rotation_value)
+		collision_shape.rotation = rotation_value
 		
 		print("rotation: " + str(rotation_value))
 
