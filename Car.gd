@@ -64,9 +64,9 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 
 func set_sprites_rotation():
-		var rotation_value = deg2rad(velocity.angle()) - deg2rad(90)
+#		var rotation_value = deg2rad(velocity.angle()) - deg2rad(90)
+		var rotation_value = velocity.angle()
 		
 		stacked_sprite.set_rotation(rotation_value)
-		collision_shape.rotation = rotation_value
-		
+		collision_shape.rotation = deg2rad(rotation)
 		print("Rotation Value: " + str(rotation_value))
