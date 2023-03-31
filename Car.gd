@@ -1,21 +1,5 @@
 extends KinematicBody2D
 
-#const SPEED = 130
-#const ACCELERATION = 5
-#
-#var velocity = Vector2.ZERO
-#
-#func _physics_process(delta):
-#	var input = Vector2.ZERO
-#	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-#	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-#	velocity = lerp(velocity, input * SPEED, ACCELERATION * delta)
-#	move_and_slide(velocity)
-#	if input != Vector2.ZERO:
-#		var rotation_value = velocity.angle() - deg2rad(90)
-#		$StackedSprite.set_rotation(rotation_value)
-#		print("rotation: " + str(rotation_value))
-
 onready var stacked_sprite = $StackedSprite
 onready var collision_shape = $CollisionShape2D
 
@@ -63,14 +47,6 @@ func get_input():
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
 		
-func set_sprites_rotation():
-		var rotation_value = deg2rad(velocity.angle()) - deg2rad(90)
-		
-		stacked_sprite.set_rotation(rotation_value)
-		collision_shape.rotation = rotation_value
-		
-		print("Rotation Value: " + str(rotation_value))
-
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2
 	var front_wheel = position + transform.x * wheel_base/2
@@ -87,3 +63,10 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
+func set_sprites_rotation():
+		var rotation_value = deg2rad(velocity.angle()) - deg2rad(90)
+		
+		stacked_sprite.set_rotation(rotation_value)
+		collision_shape.rotation = rotation_value
+		
+		print("Rotation Value: " + str(rotation_value))
