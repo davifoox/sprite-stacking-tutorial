@@ -11,8 +11,7 @@ position = Vector2( 155, 125 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -5, 0.5 )
+position = Vector2( 0, -5 )
 shape = SubResource( 1 )
 
 [node name="StackedSprite" parent="." instance=ExtResource( 1 )]
-rotation = -1.57079
