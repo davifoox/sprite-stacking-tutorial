@@ -4,7 +4,6 @@ onready var stacked_sprite = $Node/StackedSprite
 onready var collision_shape = $CollisionShape2D
 
 var wheel_base = 30
-#var steering_angle = 15
 var steering_angle = 30
 var engine_power = 400
 var friction = -0.9
@@ -28,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	set_sprites_and_collision_rotation()
 	set_sprites_position()
+	
+	print(velocity.x)
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -73,7 +74,7 @@ func set_sprites_and_collision_rotation():
 	stacked_sprite.set_rotation(rotation_value)
 	collision_shape.rotation = deg2rad(rotation)
 	
-	print("Rotation Value: " + str(rotation_value))
+#	print("Rotation Value: " + str(rotation_value))
 
 func set_sprites_position():
 	stacked_sprite.global_position = global_position
