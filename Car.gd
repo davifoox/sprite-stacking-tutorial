@@ -26,7 +26,9 @@ func _physics_process(delta: float) -> void:
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
-	set_sprites_rotation()
+	set_sprites_and_collision_rotation()
+	set_sprites_position()
+	set_sprites_position()
 
 func apply_friction():
 	if velocity.length() < 5:
@@ -63,14 +65,16 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 
-func set_sprites_rotation():
+func set_sprites_and_collision_rotation():
 	if velocity == Vector2.ZERO:
 		return
 	
 	var rotation_value = velocity.angle() - deg2rad(90)
-	
-	stacked_sprite.global_position = global_position
+
 	stacked_sprite.set_rotation(rotation_value)
 	collision_shape.rotation = deg2rad(rotation)
 	
 	print("Rotation Value: " + str(rotation_value))
+
+func set_sprites_position():
+	stacked_sprite.global_position = global_position
