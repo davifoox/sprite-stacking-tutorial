@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
-#	set_sprites_rotation()
+	set_sprites_rotation()
 
 func apply_friction():
 	if velocity.length() < 5:
