@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	set_sprites_and_collision_rotation()
 	set_sprites_position()
-	set_sprites_position()
 
 func apply_friction():
 	if velocity.length() < 5:
