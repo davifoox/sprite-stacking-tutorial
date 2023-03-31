@@ -15,3 +15,4 @@ position = Vector2( -5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="StackedSprite" parent="." instance=ExtResource( 1 )]
+rotation = -1.57079
